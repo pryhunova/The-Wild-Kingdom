@@ -1,0 +1,7 @@
+.block-header__label {
+  line-height: 156.25%; /* 25/16 */
+  text-transform: capitalize;
+}
+.block-header__title {
+  text-transform: capitalize;
+}

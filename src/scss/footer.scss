@@ -1,0 +1,102 @@
+//====================================================================================================
+.footer {
+	position: relative;
+	background-color: $bdDark;
+
+	padding: toRem(0) toRem(0) toRem(0) toRem(0);
+	background-color: $bdDark;
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		height: 100%;
+		width: toRem(457);
+	}
+
+	&::before {
+		content: "";
+		left: 0;
+		bottom: 0;
+		background: url("@img/footer-decor.svg") left bottom / 100% no-repeat;
+	}
+	&::after {
+		content: "";
+		right: 0;
+		top: 0;
+		transform: rotate(-180deg);
+		background: url("@img/footer-decor.svg") left bottom / 100% no-repeat;
+	}
+	// .footer__container
+	&__container {
+	}
+	// .footer__body
+	&__body {
+		@include adaptiveValue("padding-top", 92, 40);
+		@include adaptiveValue("padding-bottom", 45, 30);
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+	// .footer__content
+	&__content {
+		border-right: toRem(1) solid $bdGold;
+	}
+	// .footer__menu
+	&__menu {
+	}
+	// .footer__social
+	&__social {
+	}
+	// .footer__logo
+	&__logo {
+		justify-self: center;
+		@include adaptiveValue("width", 217, 80);
+	}
+	// .footer__subscribe
+	&__subscribe {
+	}
+	// .footer__copy
+	&__copy {
+		@include adaptiveValue("padding-top", 42, 15);
+		@include adaptiveValue("padding-bottom", 42, 15);
+	}
+}
+.menu-footer {
+	// .menu-footer__title
+	&__title {
+	}
+	// .menu-footer__list
+	&__list {
+	}
+	// .menu-footer__item
+	&__item {
+	}
+	// .menu-footer__link
+	&__link {
+	}
+}
+.social {
+	// .social__item
+	&__item {
+	}
+}
+
+.subscribe {
+	display: grid;
+	justify-items: end;
+	border-left: toRem(1) solid $bdGold;
+
+	// .subscribe__title
+	&__title {
+	}
+	// .subscribe__form
+	&__form {
+	}
+	// .subscribe__input
+	&__input {
+	}
+	// .subscribe__button
+	&__button {
+	}
+}
+
+//====================================================================================================
