@@ -2,52 +2,13 @@
 // Сніппет (HTML): btn
 
 .button {
-	position: relative;
-	overflow: hidden;
 	display: inline-flex;
-	border-radius: toRem(50);
-	padding: toRem(10) toRem(40);
-	font-weight: 300;
-	line-height: 156%;
-	background-color: #fff;
-
-	&::before {
-		content: "";
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		transition: opacity 0.3s;
-		opacity: 0.5;
-		background: url("@img/bg-button.jpg") center no-repeat;
-	}
-
-	&--fw {
-		width: 100%;
-	}
-
-	&--border {
-		background-color: transparent;
-		border: 1px solid $bdGold;
-		color: $bdGold;
-		&::before {
-			opacity: 0;
-		}
-	}
-
-	span {
-		position: relative;
-	}
-
+	padding: 0px 0px;
 	@media (any-hover: hover) {
 		&:hover {
-			color: $mainColor;
-			border: 1px solid transparent;
-			&::before {
-				content: "";
-				opacity: 1;
-			}
 		}
+	}
+	&--fw {
+		width: 100%;
 	}
 }
