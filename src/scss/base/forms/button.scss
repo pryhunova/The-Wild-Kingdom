@@ -10,9 +10,6 @@
 	line-height: 156%;
 	border-radius: 50px;
 	background-color: #fff;
-	&--fw {
-		width: 100%;
-	}
 	&::before {
 		content: "";
 		position: absolute;
@@ -24,23 +21,30 @@
 		opacity: 0.5;
 		background: url("@img/bg-button.jpg") center no-repeat;
 	}
+	&--fw {
+		width: 100%;
+	}
+	&--border {
+		transition: all 0.3s;
+		background-color: transparent;
+		border: toRem(1) solid $bgGold;
+		color: $bgGold;
+		&::before {
+			opacity: 0;
+		}
+	}
 	span {
 		position: relative;
 	}
+
 	@media (any-hover: hover) {
 		&:hover {
+			color: $mainColor;
+			border: toRem(1) solid transparent;
 			&::before {
 				content: "";
-				opacity: 1;
+				opacity: 0.5;
 			}
 		}
 	}
-}
-
-.button--border {
-	padding: toRem(10) toRem(40);
-	font-weight: 300;
-	line-height: 156%;
-	border-radius: 50px;
-	border: toRem(1) solid $bgGold;
 }
