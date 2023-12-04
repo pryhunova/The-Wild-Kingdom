@@ -1,5 +1,10 @@
 //====================================================================================================
 .header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 50;
 	// .header__container
 	&__container {
 		display: grid;
@@ -50,7 +55,7 @@
 			left: -100%;
 			top: 0;
 			overflow: auto;
-			background-color: $bdGold;
+			background-color: $bgGold;
 			transition: left 0.3s;
 			padding: toRem(100) toRem(15) toRem(30) toRem(15);
 			&::before {
@@ -62,7 +67,7 @@
 				left: -100%;
 				z-index: 2;
 				transition: left 0.3s;
-				background-color: $bdGold;
+				background-color: $bgGold;
 			}
 			.menu-open & {
 				left: 0;
@@ -91,7 +96,7 @@
 	// .menu__link
 	&__link {
 		display: inline-block;
-		color: $bdGold;
+		color: $bgGold;
 		line-height: 156%;
 		font-weight: 300;
 
@@ -100,8 +105,9 @@
 			font-size: toRem(28);
 		}
 		@media (any-hover: hover) {
+			transition: transform 0.3s;
 			&:hover {
-				text-decoration: underline;
+				transform: scale(1.1);
 			}
 		}
 	}
@@ -121,15 +127,16 @@
 	// .action-header__link
 	&__link {
 		display: inline-block;
-		color: $bdGold;
+		color: $bgGold;
 		line-height: 156%;
 		font-weight: 300;
 		@media (max-width: $mobile) {
 			color: #fff;
 		}
 		@media (any-hover: hover) {
+			transition: transform 0.3s;
 			&:hover {
-				text-decoration: underline;
+				transform: scale(1.1);
 			}
 		}
 	}
@@ -169,7 +176,7 @@
 			position: absolute;
 			width: 100%;
 			height: toRem(2);
-			background-color: $bdGold;
+			background-color: $bgGold;
 			.menu-open & {
 				background-color: #fff;
 			}
