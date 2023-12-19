@@ -8,7 +8,7 @@
 // При необхідності підключаємо додаткові модулі слайдера, вказуючи їх у {} через кому
 // Приклад: { Navigation, Autoplay }
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Controller, Parallax } from 'swiper/modules';
 /*
 Основні модулі слайдера:
 Navigation, Pagination, Autoplay, 
@@ -29,92 +29,56 @@ function initSliders() {
 	// Список слайдерів
 	// Перевіряємо, чи є слайдер на сторінці
 	if (document.querySelector('.hero__slider')) { // Вказуємо склас потрібного слайдера
-		// Створюємо слайдер
-		new Swiper('.hero__slider', { // Вказуємо склас потрібного слайдера
+
+		const mainSlider = new Swiper('.hero__slider', { // Вказуємо склас потрібного слайдера
 			// Підключаємо модулі слайдера
 			// для конкретного випадку
-			modules: [Navigation],
+			modules: [Navigation, Controller, Parallax],
 			observer: true,
 			observeParents: true,
-			slidesPerView: 1,
-			spaceBetween: 0,
+			parallax: true,
+			loop: true,
+			slidesPerView: 'auto',
+			spaceBetween: 30,
+			slideToClickedSlide: true,
 			//autoHeight: true,
 			speed: 800,
 			// centeredSlides: true,
-
-			//touchRatio: 0,
-			//simulateTouch: false,
-			//loop: true,
-			//preloadImages: false,
-			//lazy: true,
-
-			/*
-			// Ефекти
-			effect: 'fade',
-			autoplay: {
-				delay: 3000,
-				disableOnInteraction: false,
-			},
-			*/
-
-			// Пагінація
-			/*
-			pagination: {
-				el: '.swiper-pagination',
-				clickable: true,
-			},
-			*/
-
-			// Скроллбар
-			/*
-			scrollbar: {
-				el: '.swiper-scrollbar',
-				draggable: true,
-			},
-			*/
-
 			// Кнопки "вліво/вправо"
 			navigation: {
 				prevEl: '.hero__arrow--left',
 				nextEl: '.hero__arrow--right',
 			},
-			/*
-			// Брейкпоінти
 			breakpoints: {
-				640: {
-					slidesPerView: 1,
-					spaceBetween: 0,
-					autoHeight: true,
+				// when window width is >= 320px
+				320: {
+					centeredSlides: true,
+					spaceBetween: 15,
 				},
 				768: {
-					slidesPerView: 2,
-					spaceBetween: 20,
+					centeredSlides: true,
 				},
-				992: {
-					slidesPerView: 3,
-					spaceBetween: 20,
-				},
-				1268: {
-					slidesPerView: 4,
+				// when window width is >= 640px
+				1200: {
+					centeredSlides: false,
 					spaceBetween: 30,
-				},
+				}
 			},
-			*/
 			// Події
 			on: {
-				// init: function (slider) {
-				// 	slider.slides.forEach(slide => {
-				// 		const imageSrc = slide.querySelector('.slide-hero__image').getAttribute('src');
-				// 		const topImage = `
-				// 				<div class="slide-hero__top-image">
-				// 					<img src="${imageSrc}" alt="Image">
-				// 				</div>`;
-				// 		slide.insertAdjacentHTML('beforeend', topImage)
-				// 	});
-				// }
+				init: function (slider) {
+					slider.slides.forEach(slide => {
+						const imageSrc = slide.querySelector('.slide-hero__image').getAttribute('src');
+						const topImage = `
+								<div class="slide-hero__top-image">
+									<img src="${imageSrc}" alt="Image">
+								</div>`;
+						const slideContent = slide.querySelector('.slide-hero__content');
+						slideContent.insertAdjacentHTML('beforeend', topImage)
+					});
+				}
 			}
 		});
-
 	}
 }
 // Скролл на базі слайдера (за класом swiper scroll для оболонки слайдера)
@@ -128,7 +92,7 @@ function initSlidersScroll() {
 				observer: true,
 				observeParents: true,
 				direction: 'vertical',
-				slidesPerView: 'auto',
+				slidesPerView: 4,
 				freeMode: {
 					enabled: true,
 				},
