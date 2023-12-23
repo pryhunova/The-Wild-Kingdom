@@ -13,6 +13,9 @@
 	&__label {
 		line-height: 156.25%;
 		text-transform: capitalize;
+		&--white {
+			color: #fff;
+		}
 	}
 	// .block-header__title
 	&__title {
@@ -29,6 +32,9 @@
 		line-height: 156.25%;
 		blockquote {
 			font-style: italic;
+		}
+		&--white {
+			color: #fff;
 		}
 	}
 	// .block-header__button

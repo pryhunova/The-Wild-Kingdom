@@ -178,14 +178,14 @@
 	// .about-us__image
 	&__image {
 		flex: 0 0 51.25%;
-		outline: 1px solid $goldColor;
+		border: 1px solid $goldColor;
 		padding: toRem(15);
 		img {
 			max-width: 100%;
 		}
 	}
 	// .about-us__contetn
-	&__contetn {
+	&__content {
 		flex: 1 1 auto;
 	}
 	// .about-us__block-header
@@ -214,6 +214,12 @@
 		gap: toRem(29);
 		align-items: center;
 		justify-items: center;
+		@media (any-hover: hover) {
+			transition: transform 0.3s;
+			&:hover {
+				transform: scale(1.1);
+			}
+		}
 	}
 	// .services-about-us__icon
 	&__icon {
@@ -357,9 +363,11 @@
 	}
 	// .item-product__link-title
 	&__link-title {
+		display: inline-block;
 		line-height: 120%;
+		transition: transform 0.3s;
 		&:hover {
-			text-decoration: underline;
+			transform: scale(1.1);
 		}
 	}
 	// .item-product__price
@@ -393,6 +401,55 @@
 		flex: 0 0 toRem(26);
 		&--active {
 			background: url("@img/icons/star-fill.svg") 0 0 no-repeat;
+		}
+	}
+}
+//===================================================================================================
+.services {
+	@include adaptiveValue("padding-top", 175, 30);
+	@include adaptiveValue("padding-bottom", 175, 30);
+	position: relative;
+	&::before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		background: url("@img/services/bg.jpg") center/ cover no-repeat;
+	}
+	// .services__container
+	&__container {
+		display: flex;
+		position: relative;
+		z-index: 2;
+		align-items: flex-start;
+		@media (max-width: $tablet) {
+			flex-direction: column-reverse;
+		}
+	}
+	// .services__image
+	&__image {
+		flex: 0 1 50%;
+		padding: toRem(15);
+		border: toRem(1) solid #fff;
+		img {
+			max-width: 100%;
+		}
+	}
+
+	// .services__block-header
+	&__block-header {
+		flex: 0 1 50%;
+		align-self: center;
+		@media (min-width: $tablet) {
+			max-width: toRem(460);
+			@include adaptiveValue("margin-left", 168, 50, 2, $containerWidth, 991.98);
+		}
+		@media (max-width: $tablet) {
+			margin-bottom: toRem(30);
+			&:not(:last-child) {
+			}
 		}
 	}
 }
