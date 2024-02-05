@@ -1054,6 +1054,7 @@ textarea.input {
   display: -ms-flexbox;
   display: flex;
   gap: 0.625rem;
+  height: 26px;
 }
 
 .rating__item {
